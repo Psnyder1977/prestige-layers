@@ -62,8 +62,8 @@ class PrestigeLayer
             }
             return "<span class='flipped-v'>Ω</span><sup>" + PrestigeLayer.getNameForLayer(layer.div(INFINITY).floor().sub(1)) + "</sup>";
         }
-        let letters = "αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ";
-        let orders = "ψϝϛͱϻϙͳϸ";
+        let letters = "PRSIOETCFUN";
+        let orders = "USMGTPEZYRQ";
         let totalCombinations = (orders.length + 2) * letters.length;
         let arrowOrder = Math.floor(Math.log(nLayer) / Math.log(totalCombinations));
         let order = Math.floor(nLayer / letters.length);
@@ -84,15 +84,14 @@ class PrestigeLayer
 
     static getFullNameForLayer(layer)
     {
-        let names = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "my", "ny", "xi", "omicron",
-            "pi", "rho", "sigma", "tau", "ypsilon", "phi", "chi", "psi", "omega"];
+        let names = ["points", "rebirth", "sacrifice", "insanity", "ordinary", "extreme", "transcend", "craziness", "fatality", "unfunity", "infinity"];
         let name = names[layer % names.length];
         if(layer % (names.length * 2) >= names.length)
         {
             name = name[0].toUpperCase() + name.substr(1);
         }
         let order = Math.floor(layer / (names.length * 2));
-        let prefix = ["", "Om-", "Psi-", "Di-", "Sti-", "He-", "San-", "Kop-", "Sam-", "Sp-"][order];
+        let prefix = ["", "Ultra", "Super", "Mega", "Giga", "Tera", "Peta", "Exa", "Zetta", "Yotta", "Ronna", "Quetta"][order];
         return prefix + name;
     }
 
